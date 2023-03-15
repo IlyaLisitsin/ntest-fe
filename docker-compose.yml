@@ -1,0 +1,25 @@
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile.front
+    ports:
+      - "3000:3000"    
+    depends_on:
+      - db
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile.back
+    ports: 
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    volumes:
+      - vol_db:/data/db
+    image: mongo:latest
+    ports:
+      - "27017:27017"  
+volumes:
+  vol_db:
