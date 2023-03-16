@@ -4,7 +4,8 @@ const bluebird = require('bluebird');
 
 global.isLocal = process.argv[2] === 'DEV';
 
-const PORT = isLocal ? 8001 : 8000;
+// const PORT = isLocal ? 8001 : 8000;
+const PORT = 8000;
 
 bluebird.config({
     cancellation: true
@@ -91,29 +92,7 @@ const connectDb = () => {
     };
 
     mongoose.connect(connectionUrl, options)
-        .then(async () => {
-            console.log('DB CONNECTED')
-
-            const mongoose = require("mongoose");
-            const Schema = mongoose.Schema;
-
-            const ConfigSchema = new Schema({
-                title: {type: String, default: null},
-                json: {type: String, default: null},
-            }, { timestamps: true });
-
-            // module.exports.Config = mongoose.model("Config", ConfigSchema);
-            const sch = mongoose.model("Config", ConfigSchema);
-
-            var n  = new sch();
-            await n.save();
-
-            const s = await sch.find();
-
-
-
-            console.log(1212, s)
-        });
+        .then(async () => console.log('DB CONNECTED'));
 
     return mongoose.connection
 };

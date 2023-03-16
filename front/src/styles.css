@@ -40,6 +40,14 @@ body {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto 1fr auto;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+canvas {
+    border: 1px solid rgb(6, 216, 215);
+    border-left: 0;
+    border-top: 0;
 }
 
 header {
@@ -53,7 +61,8 @@ header {
     color: rgb(126, 252, 246);
     user-select: none;
     background-color: #031b20;
-    padding: 20px;
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
     line-height: 30px;
     font-size: 30px;
 }
@@ -96,3 +105,20 @@ aside {
     font-weight: 700;
     transition: .3s;
 }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.logo path:first-child {
+    fill: transparent;
+}
+.logo path:last-child {
+    fill: rgb(126, 252, 246);
+}
+

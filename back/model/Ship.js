@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ConfigSchema = new Schema({
-    title: {type: String, default: null},
-    json: {type: String, default: null},
+const ShipSchema = new Schema({
+    model: { type: String, default: '' },
+    timesClicked: { type: Number, default: 0 },
 }, { timestamps: true });
 
-module.exports.Config = mongoose.model("Config", ConfigSchema);
+module.exports.Ship = mongoose.model("Ship", ShipSchema);
